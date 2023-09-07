@@ -11,7 +11,7 @@ public class Player {
     private int health;
 
     private Player() {
-        name = "Jill Valentine";
+        name = "Valentine";
         health = 100;
     }
 

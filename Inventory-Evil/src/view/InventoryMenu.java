@@ -35,13 +35,15 @@ public class InventoryMenu extends Menu{
         playerPanel = new JPanel();
         playerPanel.setBounds(100, 15, 600, 50);
         playerPanel.setBackground(Color.black);
-        playerPanel.setLayout(new GridLayout(1, 4));
+        playerPanel.setLayout(new GridLayout(1, 6));
 
-        playerLabels = new JLabel[4];
-        playerLabels[0] = createLabel("HP: ", false);
-        playerLabels[1] = createLabel(Integer.toString(Player.getInstance().getHealth()), false);
-        playerLabels[2] = createLabel("Weapon: ", false);
-        playerLabels[3] = createLabel("", false);
+        playerLabels = new JLabel[6];
+        playerLabels[0] = createLabel("Name: ", false);
+        playerLabels[1] = createLabel(Player.getInstance().getName(), false);
+        playerLabels[2] = createLabel("HP: ", false);
+        playerLabels[3] = createLabel(Integer.toString(Player.getInstance().getHealth()), false);
+        playerLabels[4] = createLabel("Weapon: ", false);
+        playerLabels[5] = createLabel("", false);
         for(JLabel label : playerLabels) {
             playerPanel.add(label);
         }
