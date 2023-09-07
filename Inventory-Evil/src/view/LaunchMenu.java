@@ -24,6 +24,13 @@ public class LaunchMenu extends Menu {
     private JLabel titleLabel;
     private JButton[] menuButtons;
 
+    /**
+     * Creates a Menu instance, set into a JFrame and handled by an ActionListener.
+     * Menu is not shown by default.
+     *
+     * @param frame   Frame that the Menu will be set in.
+     * @param handler Handler that controls certain actions in the Menu.
+     */
     private LaunchMenu(JFrame frame, ActionListener handler) {
         super(frame, handler);
     }
@@ -48,13 +55,8 @@ public class LaunchMenu extends Menu {
         menuButtons[0] = createButton("NEW", "new");
         menuButtons[1] = createButton("LOAD", "load");
         for (JButton menuButton : menuButtons) {
-            menuButton.setBackground(Color.black);
-            menuButton.setForeground(Color.white);
-            menuButton.setFont(getFont(false));
-            menuButton.setFocusPainted(false);
             menuPanel.add(menuButton);
         }
-
         frame.add(menuPanel);
         frame.add(titlePanel);
     }

@@ -22,6 +22,8 @@ public class LaunchMenuHandler implements ActionListener {
                 LaunchMenu.getInstance().show(false);
                 MainMenu.getInstance().show(true);
             break;
+            case "load":
+            break;
         }
     }
 }

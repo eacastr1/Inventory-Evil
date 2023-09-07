@@ -16,7 +16,7 @@ public abstract class Menu {
 
     /**
      * Creates a Menu instance, set into a JFrame and handled by an ActionListener.
-     * Menu is closed by default.
+     * Menu is not shown by default.
      * @param frame Frame that the Menu will be set in.
      * @param handler Handler that controls certain actions in the Menu.
      */
@@ -48,7 +48,7 @@ public abstract class Menu {
         if(b) {
             return new Font("Times New Roman", Font.PLAIN, 65);
         }
-        return new Font("Times New Roman", Font.PLAIN, 25);
+        return new Font("Times New Roman", Font.PLAIN, 20);
     }
 
     /**
@@ -61,6 +61,10 @@ public abstract class Menu {
         JButton button = new JButton(name);
         button.addActionListener(this.handler);
         button.setActionCommand(command);
+        button.setBackground(Color.black);
+        button.setForeground(Color.white);
+        button.setFont(getFont(false));
+        button.setFocusPainted(false);
         return button;
     }
 }
