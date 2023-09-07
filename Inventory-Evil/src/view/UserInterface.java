@@ -16,6 +16,7 @@ public class UserInterface {
     public static final JFrame FRAME = new JFrame();
     private LaunchMenu launchMenu;
     private MainMenu mainMenu;
+    private InventoryMenu inventoryMenu;
 
     public UserInterface() {
         frameSetup();
@@ -34,6 +35,7 @@ public class UserInterface {
     private void menuSetup() {
         launchMenu = LaunchMenu.getInstance();
         mainMenu = MainMenu.getInstance();
+        inventoryMenu = InventoryMenu.getInstance();
         launchMenu.show(true);
     }
 }

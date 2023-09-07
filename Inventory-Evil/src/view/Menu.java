@@ -44,7 +44,7 @@ public abstract class Menu {
      * @param b A boolean value, if true, font is of title size, otherwise the font is of normal size.
      * @return A font of either title or normal size.
      */
-    public Font getFont(boolean b) {
+    private Font getFont(boolean b) {
         if(b) {
             return new Font("Times New Roman", Font.PLAIN, 65);
         }
@@ -66,5 +66,12 @@ public abstract class Menu {
         button.setFont(getFont(false));
         button.setFocusPainted(false);
         return button;
+    }
+
+    public JLabel createLabel(String text, boolean b) {
+        JLabel label = new JLabel(text);
+        label.setFont(getFont(b));
+        label.setForeground(Color.white);
+        return label;
     }
 }

@@ -41,9 +41,7 @@ public class LaunchMenu extends Menu {
         titlePanel = new JPanel();
         titlePanel.setBounds(100, 100, 600, 500);
         titlePanel.setBackground(Color.black);
-        titleLabel = new JLabel("INVENTORY EVIL");
-        titleLabel.setForeground(Color.white);
-        titleLabel.setFont(getFont(true));
+        titleLabel = createLabel("INVENTORY EVIL", true);
         titlePanel.add(titleLabel);
         // Menu Select
         menuPanel = new JPanel();
