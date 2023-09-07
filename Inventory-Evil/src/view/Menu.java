@@ -14,9 +14,17 @@ public abstract class Menu {
     protected JFrame frame;
     protected ActionListener handler;
 
+    /**
+     * Creates a Menu instance, set into a JFrame and handled by an ActionListener.
+     * Menu is closed by default.
+     * @param frame Frame that the Menu will be set in.
+     * @param handler Handler that controls certain actions in the Menu.
+     */
     public Menu(JFrame frame, ActionListener handler) {
         this.frame = frame;
         this.handler = handler;
+        setup();
+        show(false);
     }
 
     /**
@@ -26,13 +34,10 @@ public abstract class Menu {
 
     /**
      * Shows the menu of the instance in the JFrame.
+     * @param b A boolean value to determine if the components of the menu are shown.
      */
-    public abstract void show();
+    public abstract void show(boolean b);
 
-    /**
-     * Closes the menu of the instance in the JFrame.
-     */
-    public abstract void close();
 
     /**
      * Gets font used in the application.
@@ -41,9 +46,9 @@ public abstract class Menu {
      */
     public Font getFont(boolean b) {
         if(b) {
-            return new Font("Times New Roman", Font.PLAIN, 90);
+            return new Font("Times New Roman", Font.PLAIN, 65);
         }
-        return new Font("Times New Roman", Font.PLAIN, 30);
+        return new Font("Times New Roman", Font.PLAIN, 25);
     }
 
     /**

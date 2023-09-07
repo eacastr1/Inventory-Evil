@@ -1,34 +1,29 @@
 package view;
 
+import controller.MainMenuHandler;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainMenu extends Menu {
-    private JPanel titlePanel, menuPanel;
-    private JLabel titleLabel;
-    private JButton[] menuButtons = new JButton[2];
+    private static final MainMenu MENU = new MainMenu(UserInterface.FRAME, MainMenuHandler.getInstance());
 
-    public MainMenu(JFrame frame, ActionListener handler) {
+    public static MainMenu getInstance() {
+        return MENU;
+    }
+
+    private MainMenu(JFrame frame, ActionListener handler) {
         super(frame, handler);
     }
 
     @Override
     public void setup() {
-        // Title Screen
-        titlePanel = new JPanel();
-
-        // Menu Select Buttons
-        menuButtons[0] = createButton("NEW", "new");
-        menuButtons[1] = createButton("LOAD", "load");
-    }
-
-    @Override
-    public void show() {
 
     }
 
     @Override
-    public void close() {
+    public void show(boolean b) {
 
     }
 }
