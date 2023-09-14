@@ -12,25 +12,20 @@ import java.awt.event.ActionListener;
 
 public abstract class Menu {
     protected JFrame frame;
-    protected ActionListener handler;
 
     /**
      * Creates a Menu instance, set into a JFrame and handled by an ActionListener.
      * Menu is not shown by default.
      * @param frame Frame that the Menu will be set in.
-     * @param handler Handler that controls certain actions in the Menu.
      */
-    public Menu(JFrame frame, ActionListener handler) {
+    public Menu(JFrame frame) {
         this.frame = frame;
-        this.handler = handler;
-        setup();
-        show(false);
     }
 
     /**
      * Sets up the menu of this instance.
      */
-    public abstract void setup();
+    public abstract void setup(ActionListener handler);
 
     /**
      * Shows the menu of the instance in the JFrame.
@@ -51,15 +46,16 @@ public abstract class Menu {
         return new Font("Times New Roman", Font.PLAIN, 20);
     }
 
+
     /**
      * Creates a button, setting its name or purpose, and setting its handler.
      * @param name The name of the button, usually it's purpose.
      * @param command The String command of the button, used by the handler.
      * @return A new JButton instance.
      */
-    public JButton createButton(String name, String command) {
+    public JButton createButton(String name, String command, ActionListener handler) {
         JButton button = new JButton(name);
-        button.addActionListener(this.handler);
+        button.addActionListener(handler);
         button.setActionCommand(command);
         button.setBackground(Color.black);
         button.setForeground(Color.white);

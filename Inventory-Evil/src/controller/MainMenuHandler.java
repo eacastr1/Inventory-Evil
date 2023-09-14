@@ -2,15 +2,15 @@ package controller;
 
 import view.InventoryMenu;
 import view.MainMenu;
+import view.UserInterface;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainMenuHandler implements ActionListener {
-    private static final MainMenuHandler handler = new MainMenuHandler();
+public class MainMenuHandler extends MenuHandler implements ActionListener {
 
-    public static MainMenuHandler getInstance() {
-        return handler;
+    public MainMenuHandler(UserInterface view) {
+        super(view);
     }
 
     @Override
@@ -19,11 +19,14 @@ public class MainMenuHandler implements ActionListener {
 
         switch(command) {
             case "inventory":
-                MainMenu.getInstance().show(false);
-                InventoryMenu.getInstance().show(true);
+                view.update(UserInterface.MenuState.INVENTORY);
                 break;
-            case "storage" : break;
-            case "shop": break;
+            case "storage" :
+                view.update(UserInterface.MenuState.STORAGE);
+                break;
+            case "shop":
+                view.update(UserInterface.MenuState.SHOP);
+                break;
         }
     }
 }

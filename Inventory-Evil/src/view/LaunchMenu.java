@@ -7,36 +7,21 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class LaunchMenu extends Menu {
-    /**
-     * The only instance of LaunchMenu that will be used, implementation of a singleton.
-     */
-    private static final LaunchMenu MENU = new LaunchMenu(UserInterface.FRAME, LaunchMenuHandler.getInstance());
-
-    /**
-     * A function used to get LaunchMenu class singleton.
-     * @return MENU instance.
-     */
-    public static LaunchMenu getInstance() {
-        return MENU;
-    }
-
     private JPanel titlePanel, menuPanel;
     private JLabel titleLabel;
     private JButton[] menuButtons;
 
     /**
-     * Creates a Menu instance, set into a JFrame and handled by an ActionListener.
-     * Menu is not shown by default.
+     * Creates a Menu instance, set into a JFrame.
      *
      * @param frame   Frame that the Menu will be set in.
-     * @param handler Handler that controls certain actions in the Menu.
      */
-    private LaunchMenu(JFrame frame, ActionListener handler) {
-        super(frame, handler);
+    public LaunchMenu(JFrame frame) {
+        super(frame);
     }
 
     @Override
-    public void setup() {
+    public void setup(ActionListener handler) {
         // Title Screen
         titlePanel = new JPanel();
         titlePanel.setBounds(100, 100, 600, 500);
@@ -50,8 +35,8 @@ public class LaunchMenu extends Menu {
         menuPanel.setLayout(new GridLayout(2, 1));
         // Menu Select Buttons
         menuButtons = new JButton[2];
-        menuButtons[0] = createButton("NEW", "new");
-        menuButtons[1] = createButton("LOAD", "load");
+        menuButtons[0] = createButton("NEW", "new", handler);
+        menuButtons[1] = createButton("LOAD", "load", handler);
         for (JButton menuButton : menuButtons) {
             menuPanel.add(menuButton);
         }

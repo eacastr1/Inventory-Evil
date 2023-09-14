@@ -6,51 +6,34 @@
  */
 package view;
 
-import controller.MainMenuHandler;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainMenu extends Menu {
-    /**
-     * The only instance of MainMenu that will be used, implementation of a singleton.
-     */
-    private static final MainMenu MENU = new MainMenu(UserInterface.FRAME, MainMenuHandler.getInstance());
-
-    /**
-     * A function used to get the MainMenu singleton.
-     * @return MENU instance.
-     */
-    public static MainMenu getInstance() {
-        return MENU;
-    }
-
     private JPanel selectPanel;
     private JButton[] selectButtons;
 
     /**
-     * Creates a Menu instance, set into a JFrame and handled by an ActionListener.
-     * Menu is not shown by default.
+     * Creates a Menu instance, set into a JFrame.
      *
-     * @param frame   Frame that the Menu will be set in.
-     * @param handler Handler that controls certain actions in the Menu.
+     * @param frame Frame that the Menu will be set in.
      */
-    private MainMenu(JFrame frame, ActionListener handler) {
-        super(frame, handler);
+    public MainMenu(JFrame frame) {
+        super(frame);
     }
 
     @Override
-    public void setup() {
+    public void setup(ActionListener handler) {
         selectPanel = new JPanel();
         selectPanel.setBounds(300, 400, 200, 100);
         selectPanel.setBackground(Color.black);
         selectPanel.setLayout(new GridLayout(3, 1));
 
         selectButtons = new JButton[3];
-        selectButtons[0] = createButton("INVENTORY", "inventory");
-        selectButtons[1] = createButton("STORAGE", "storage");
-        selectButtons[2] = createButton("SHOP", "shop");
+        selectButtons[0] = createButton("INVENTORY", "inventory", handler);
+        selectButtons[1] = createButton("STORAGE", "storage", handler);
+        selectButtons[2] = createButton("SHOP", "shop", handler);
         for (JButton selectButton : selectButtons) {
             selectPanel.add(selectButton);
         }

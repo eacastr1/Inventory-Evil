@@ -6,22 +6,37 @@
  */
 package view;
 
+import controller.InventoryMenuHandler;
+import controller.LaunchMenuHandler;
+import controller.MainMenuHandler;
+import model.InventoryModel;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class UserInterface {
+    public static enum MenuState {LAUNCH, MAIN, INVENTORY, STORAGE, SHOP}
+
     /**
-     * The JFrame that will be shared throughout the User Interface.
+     * The JFrame that will be shared throughout this User Interface.
      */
     public static final JFrame FRAME = new JFrame();
-    private LaunchMenu launchMenu;
-    private MainMenu mainMenu;
-    private InventoryMenu inventoryMenu;
+    private InventoryModel model;
+    private LaunchMenu launchMenu = new LaunchMenu(FRAME);
+    private MainMenu mainMenu = new MainMenu(FRAME);
+    private InventoryMenu inventoryMenu = new InventoryMenu(FRAME);
+    private LaunchMenuHandler launchMenuHandler = new LaunchMenuHandler(this);
+    private MainMenuHandler mainMenuHandler = new MainMenuHandler(this);
+    private InventoryMenuHandler inventoryMenuHandler = new InventoryMenuHandler(this, inventoryMenu, model);
 
     public UserInterface() {
         frameSetup();
 
         menuSetup();
+
+        closeMenus();
+
+        update(MenuState.LAUNCH);
 
         FRAME.setVisible(true);
     }
@@ -32,10 +47,28 @@ public class UserInterface {
         FRAME.getContentPane().setBackground(Color.black);
         FRAME.setLayout(null);
     }
+
     private void menuSetup() {
-        launchMenu = LaunchMenu.getInstance();
-        mainMenu = MainMenu.getInstance();
-        inventoryMenu = InventoryMenu.getInstance();
-        launchMenu.show(true);
+        launchMenu.setup(launchMenuHandler);
+        mainMenu.setup(mainMenuHandler);
+        inventoryMenu.setup(inventoryMenuHandler);
+    }
+
+    public void update(MenuState state) {
+        closeMenus();
+        switch(state) {
+            case LAUNCH: launchMenu.show(true);
+            break;
+            case MAIN: mainMenu.show(true);
+            break;
+            case INVENTORY: inventoryMenu.show(true);
+            break;
+        }
+    }
+
+    public void closeMenus() {
+        launchMenu.show(false);
+        mainMenu.show(false);
+        inventoryMenu.show(false);
     }
 }

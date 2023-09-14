@@ -1,17 +1,25 @@
 package controller;
 
+import model.InventoryModel;
+import view.InventoryMenu;
+import view.UserInterface;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InventoryMenuHandler implements ActionListener {
-    private static final InventoryMenuHandler HANDLER = new InventoryMenuHandler();
-
-    public static InventoryMenuHandler getInstance() {
-        return HANDLER;
+public class InventoryMenuHandler extends MenuHandler implements ActionListener {
+    public InventoryMenuHandler(UserInterface view, InventoryMenu menu, InventoryModel model) {
+        super(view);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        String command = e.getActionCommand();
     }
+
+    // MOVE IN INVENTORY
+
+    // REMOVE IN INVENTORY
+
+    // ADD TO STORAGE
 }
