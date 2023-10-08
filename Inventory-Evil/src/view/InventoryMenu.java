@@ -44,7 +44,7 @@ public class InventoryMenu extends Menu {
         inventoryPanel = new JPanel();
         inventoryPanel.setBounds(100, 100, 600, 200);
         inventoryPanel.setBackground(Color.black);
-        inventoryPanel.setLayout(new GridLayout(2, 4));
+        inventoryPanel.setLayout(new GridLayout(4, 4));
         inventoryButtons = new JButton[8];
         for(int i = 0; i < inventoryButtons.length; i++) {
             inventoryButtons[i] = createButton("EMPTY", Integer.toString(i), handler);

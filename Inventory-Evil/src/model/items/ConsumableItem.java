@@ -6,7 +6,7 @@ import model.items.aspects.Usable;
 public class ConsumableItem extends Item implements Usable {
     protected int recovery;
 
-    public ConsumableItem(String id, String name, int index, int value, int recovery) {
+    public ConsumableItem(String id, Items name, int index, int value, int recovery) {
         super(id, name, index, value);
         this.recovery = recovery;
     }

@@ -10,6 +10,7 @@ import controller.InventoryMenuHandler;
 import controller.LaunchMenuHandler;
 import controller.MainMenuHandler;
 import model.InventoryModel;
+import model.ItemModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,13 +22,14 @@ public class UserInterface {
      * The JFrame that will be shared throughout this User Interface.
      */
     public static final JFrame FRAME = new JFrame();
-    private InventoryModel model;
+    private InventoryModel invModel = new InventoryModel();
+    private ItemModel itemModel = new ItemModel(invModel);
     private LaunchMenu launchMenu = new LaunchMenu(FRAME);
     private MainMenu mainMenu = new MainMenu(FRAME);
-    private InventoryMenu inventoryMenu = new InventoryMenu(FRAME);
+    private InventoryMenu invMenu = new InventoryMenu(FRAME);
     private LaunchMenuHandler launchMenuHandler = new LaunchMenuHandler(this);
     private MainMenuHandler mainMenuHandler = new MainMenuHandler(this);
-    private InventoryMenuHandler inventoryMenuHandler = new InventoryMenuHandler(this, inventoryMenu, model);
+    private InventoryMenuHandler inventoryMenuHandler = new InventoryMenuHandler(this, invMenu, invModel, itemModel);
 
     public UserInterface() {
         frameSetup();
@@ -51,7 +53,7 @@ public class UserInterface {
     private void menuSetup() {
         launchMenu.setup(launchMenuHandler);
         mainMenu.setup(mainMenuHandler);
-        inventoryMenu.setup(inventoryMenuHandler);
+        invMenu.setup(inventoryMenuHandler);
     }
 
     public void update(MenuState state) {
@@ -61,7 +63,7 @@ public class UserInterface {
             break;
             case MAIN: mainMenu.show(true);
             break;
-            case INVENTORY: inventoryMenu.show(true);
+            case INVENTORY: invMenu.show(true);
             break;
         }
     }
@@ -69,6 +71,6 @@ public class UserInterface {
     public void closeMenus() {
         launchMenu.show(false);
         mainMenu.show(false);
-        inventoryMenu.show(false);
+        invMenu.show(false);
     }
 }

@@ -9,6 +9,7 @@ public class Player {
 
     private String name;
     private int health;
+    private int pistolAmmo, shotgunAmmo, magnumAmmo;
 
     private Player() {
         name = "Valentine";
