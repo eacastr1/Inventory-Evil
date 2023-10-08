@@ -8,10 +8,11 @@ import model.items.aspects.Usable;
 public class ItemModel {
 
     private final Player player = Player.getInstance();
-    private final CraftingModel craftModel;
+    private final CraftingModel craftModel = new CraftingModel();
+    private final InventoryModel invModel;
 
     public ItemModel(InventoryModel model) {
-        craftModel = new CraftingModel();
+        invModel = model;
     }
 
     // use item lol
