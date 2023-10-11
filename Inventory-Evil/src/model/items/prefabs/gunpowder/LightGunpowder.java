@@ -1,12 +1,12 @@
 package model.items.prefabs.gunpowder;
 
 import model.items.Item;
-import model.items.Items;
+import model.items.Types;
 import model.items.aspects.Craftable;
 
 public class LightGunpowder extends Item implements Craftable {
 
     public LightGunpowder(int index) {
-        super("LG", Items.LIGHT_GUNPOWDER, index, 5);
+        super("LG", "Light Gunpowder", Types.GUNPOWDER, index, 5);
     }
 }

@@ -13,8 +13,8 @@ import model.items.aspects.Usable;
 public abstract class WeaponItem extends Item implements Equippable, Usable {
     protected boolean isEquipped;
 
-    public WeaponItem(String id, Items name, int index, int value) {
-        super(id, name, index, value);
+    public WeaponItem(String id, String name, Types type, int index, int value) {
+        super(id, name, type, index, value);
         isEquipped = false;
     }
 

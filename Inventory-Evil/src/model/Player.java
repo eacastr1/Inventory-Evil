@@ -1,8 +1,5 @@
 package model;
 
-import model.items.Item;
-import model.items.Items;
-
 public class Player {
     private static final Player PLAYER = new Player();
 

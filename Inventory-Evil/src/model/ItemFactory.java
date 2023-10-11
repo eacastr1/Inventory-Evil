@@ -1,7 +1,6 @@
 package model;
 
 import model.items.Item;
-import model.items.Items;
 import model.items.prefabs.herbs.*;
 
 public class ItemFactory {

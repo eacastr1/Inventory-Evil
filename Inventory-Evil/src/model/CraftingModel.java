@@ -21,7 +21,11 @@ public class CraftingModel {
         recipes.put("HGHG", "MA");
     }
 
-    public String getRecipeItemID(String id) {
-        return recipes.get(id);
+    public String getRecipeItemID(String id) throws IllegalArgumentException {
+        if(recipes.containsKey(id)) {
+            return recipes.get(id);
+        } else {
+            throw new IllegalArgumentException("Invalid id!");
+        }
     }
 }

@@ -11,9 +11,9 @@ public abstract class StackableItem extends Item {
     private final int maxCapacity;
     private int currentCapacity;
 
-    public StackableItem(String id, Items name, int index, int value,
+    public StackableItem(String id, String name, Types type, int index, int value,
                          int maxCapacity, int startCapacity) {
-        super(id, name, index, value);
+        super(id, name, type, index, value);
         this.maxCapacity = maxCapacity;
         currentCapacity = startCapacity;
     }

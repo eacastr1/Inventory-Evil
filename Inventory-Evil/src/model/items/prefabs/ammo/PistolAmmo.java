@@ -1,11 +1,11 @@
 package model.items.prefabs.ammo;
 
-import model.items.Items;
+import model.items.Types;
 import model.items.StackableItem;
 
 public class PistolAmmo extends StackableItem {
 
     public PistolAmmo(int index) {
-        super("PA", Items.PISTOL_AMMO, index, 15, 60, 10);
+        super("PA", "Pistol Ammo", Types.AMMO, index, 15, 60, 10);
     }
 }

@@ -56,7 +56,9 @@ public class ItemModel {
         // do craft stuff
         String id = ((Item)item1).getID() + ((Item)item2).getID();
         // get index of item2
-
+        int idx = ((Item) item2).getIndex();
+        // remove item 1 from inventory
+        // replace item 2 with newly crafted item.
         // craft
         //do inventorymodel manipulations
     }

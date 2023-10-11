@@ -13,8 +13,8 @@ import model.items.aspects.Usable;
 public class ConsumableItem extends Item implements Usable {
     protected int recovery;
 
-    public ConsumableItem(String id, Items name, int index, int value, int recovery) {
-        super(id, name, index, value);
+    public ConsumableItem(String id, String name, Types type, int index, int value, int recovery) {
+        super(id, name, type, index, value);
         this.recovery = recovery;
     }
 

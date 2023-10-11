@@ -1,13 +1,13 @@
 package model.items.prefabs.weapons;
 
-import model.items.Items;
+import model.items.Types;
 import model.items.WeaponItem;
 
 public class Knife extends WeaponItem {
     private int durability = 10;
 
     public Knife(int index) {
-        super("KN", Items.KNIFE, index, 10);
+        super("KN", "Knife", Types.WEAPON, index, 10);
     }
 
     @Override

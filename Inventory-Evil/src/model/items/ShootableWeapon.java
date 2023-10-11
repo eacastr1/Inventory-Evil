@@ -5,9 +5,9 @@ public class ShootableWeapon extends WeaponItem {
     // The current ammunition in the weapon, and the ammunition available to be added.
     protected int currentAmmo, availableAmmo;
 
-    public ShootableWeapon(String id, Items name, int index, int value,
+    public ShootableWeapon(String id, String name, Types type, int index, int value,
                            int defaultAmmo, int maxAmmo) {
-        super(id, name, index, value);
+        super(id, name, type, index, value);
         this.defaultAmmo = defaultAmmo;
         this.maxAmmo = maxAmmo;
         this.availableAmmo = 0;
