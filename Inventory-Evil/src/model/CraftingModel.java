@@ -1,7 +1,5 @@
 package model;
 
-import model.items.prefabs.herbs.YellowHerb;
-
 import java.util.HashMap;
 
 public class CraftingModel {
@@ -14,9 +12,9 @@ public class CraftingModel {
     private void setRecipes() {
         // add in string ID to get recipes
         // HERB RECIPES
-        recipes.put("GHGH", "SGH");
-        recipes.put("GHRH", "SYH");
-        recipes.put("RHGH", "SYH");
+        recipes.put("GHGH", "MGH");
+        recipes.put("GHRH", "MH");
+        recipes.put("RHGH", "MH");
         recipes.put("LGLG", "PA");
         recipes.put("LGHG", "SA");
         recipes.put("HGLG", "SA");

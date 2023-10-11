@@ -1,10 +1,17 @@
+/**
+ * <h1>Items.java</h1>
+ * <p>An enumerator used to store Item name constants.</p>
+ *
+ * @author Eddie Andres Castro
+ * @version 0.1
+ */
 package model.items;
 
 public enum Items {
     GREEN_HERB("Green Herb"),
     RED_HERB("Red Herb"),
-    SUPER_YELLOW_HERB("Super Yellow Herb"),
-    SUPER_GREEN_HERB("Super Green Herb"),
+    MIXED_HERB("Mixed Herb"),
+    MIXED_GREEN_HERB("Mixed Green Herb"),
     LIGHT_GUNPOWDER("Light Gunpowder"),
     HEAVY_GUNPOWDER("Heavy Gunpowder"),
     PISTOL_AMMO("Pistol Ammo"),

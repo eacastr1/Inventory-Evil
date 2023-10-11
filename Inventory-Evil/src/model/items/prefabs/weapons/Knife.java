@@ -16,4 +16,8 @@ public class Knife extends WeaponItem {
             durability--;
         }
     }
+
+    public int getDurability() {
+        return durability;
+    }
 }

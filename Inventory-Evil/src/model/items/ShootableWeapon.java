@@ -4,7 +4,6 @@ public class ShootableWeapon extends WeaponItem {
     protected final int defaultAmmo, maxAmmo;
     // The current ammunition in the weapon, and the ammunition available to be added.
     protected int currentAmmo, availableAmmo;
-    private StackableItem ammo;
 
     public ShootableWeapon(String id, Items name, int index, int value,
                            int defaultAmmo, int maxAmmo) {
@@ -17,40 +16,38 @@ public class ShootableWeapon extends WeaponItem {
 
     @Override
     public void use() {
-        if(isEquipped && currentAmmo > 0) {
+        if(currentAmmo > 0) {
             currentAmmo--;
         }
     }
-
-    /*
-    public void reload() {
-        if(currentAmmo + availableAmmo >= maxAmmo) {
-            availableAmmo -= maxAmmo - currentAmmo;
-            this.currentAmmo = maxAmmo;
-        } else {
-            int amount = maxAmmo - currentAmmo;
-            availableAmmo -= amount;
-            // BLAH TOO TIRED AND HUNGRY TO CODE
-        }
-    }*/
 
     /**
      * Adds ammo into the available ammo stockpile.
      * @param ammo The ammo to add.
      */
-    public void setAvailableAmmo(int ammo) {
-        availableAmmo += ammo;
+    public void setAvailableAmmo(int ammo) throws IllegalArgumentException {
+        if(ammo < 0) {
+            throw new IllegalArgumentException("Ammo cannot be negative!");
+        }
+        availableAmmo = ammo;
     }
 
     public int getAvailableAmmo() {
         return availableAmmo;
     }
 
-    public void setCurrentAmmo(int ammo) {
+    public void setCurrentAmmo(int ammo) throws IllegalArgumentException {
+        if(ammo < 0) {
+            throw new IllegalArgumentException("Ammo cannot be negative!");
+        }
         currentAmmo = ammo;
     }
 
     public int getCurrentAmmo() {
         return currentAmmo;
+    }
+
+    public int getMaxAmmo() {
+        return maxAmmo;
     }
 }

@@ -1,5 +1,8 @@
 package model;
 
+import model.items.Item;
+import model.items.Items;
+
 public class Player {
     private static final Player PLAYER = new Player();
 
@@ -27,5 +30,13 @@ public class Player {
     }
     public void setHealth(int health) {
         this.health = health;
+    }
+    public int getAmmo(String name) throws IllegalArgumentException {
+        switch(name) {
+            case "Pistol": return pistolAmmo;
+            case "Shotgun": return shotgunAmmo;
+            case "Magnum": return magnumAmmo;
+            default: throw new IllegalArgumentException("Items name must be an ammo prefab...");
+        }
     }
 }

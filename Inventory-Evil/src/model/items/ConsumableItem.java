@@ -1,3 +1,10 @@
+/**
+ * <h1>ConsumableItem.java</h1>
+ * <p>A concrete class for consumable item objects.</p>
+ *
+ * @author Eddie Andres Castro
+ * @version 0.1
+ */
 package model.items;
 
 import model.Player;
@@ -11,6 +18,9 @@ public class ConsumableItem extends Item implements Usable {
         this.recovery = recovery;
     }
 
+    /**
+     * Recovers the player's health when used.
+     */
     @Override
     public void use() {
         Player player = Player.getInstance();

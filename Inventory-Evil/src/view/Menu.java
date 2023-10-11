@@ -1,6 +1,6 @@
 /**
  * <h1>Menu.java</h1>
- * <p>An abstract class Menu, used for various types of Menu classes in the game, Inventory Evil.</p>
+ * <p>An abstract class ,Menu, used for various types of Menu classes in the game, Inventory Evil.</p>
  *
  * @author Eddie Andres Castro
  */
