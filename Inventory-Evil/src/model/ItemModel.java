@@ -10,10 +10,10 @@ public class ItemModel {
 
     private final Player player = Player.getInstance();
     private final CraftingModel craftModel = new CraftingModel();
-    private final InventoryModel invModel;
+    private final InventoryModel inventoryModel;
 
     public ItemModel(InventoryModel model) {
-        invModel = model;
+        inventoryModel = model;
     }
 
     // use item lol
@@ -43,8 +43,10 @@ public class ItemModel {
     }
 
     public <T extends StackableItem> void stack(T item1, T item2) throws IllegalArgumentException {
-        if(!(item1.getName().equals(item2.getName()))) {
-            throw new IllegalArgumentException("You cannot stack items of different classes.");
+        if(!Item.compareTypes(item1, item2)) {
+            throw new IllegalArgumentException("You cannot stack items of different types.");
+        } else if(item1.getID().equals(item2.getID())) {
+            throw new IllegalArgumentException("Items must be of the same class to be stacked");
         }
 
         int result = item2.stack(item1);
@@ -52,12 +54,19 @@ public class ItemModel {
         // do inventorymodel manipulations
     }
 
-    public <T extends Craftable> void craft(T item1, T item2) {
+    public void craft(Item item1, Item item2) throws IllegalArgumentException {
+        if(!Item.compareTypes(item1, item2)) {
+            throw new IllegalArgumentException("Different types!");
+        } else if(!(item1 instanceof Craftable)) {
+            throw new IllegalArgumentException("Non-craftable items!");
+        }
+
         // do craft stuff
-        String id = ((Item)item1).getID() + ((Item)item2).getID();
+        String id = item1.getID() + item2.getID(); // very small # of chars, simple string concatenation is fine
         // get index of item2
-        int idx = ((Item) item2).getIndex();
+        int idx = item2.getIndex();
         // remove item 1 from inventory
+
         // replace item 2 with newly crafted item.
         // craft
         //do inventorymodel manipulations

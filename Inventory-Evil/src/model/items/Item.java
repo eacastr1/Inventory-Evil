@@ -30,6 +30,10 @@ public abstract class Item implements Comparable<Item>, Serializable {
         this.value = value;
     }
 
+    public static boolean compareTypes(Item item1, Item item2) {
+        return item1.getType().equals(item2.getType());
+    }
+
     public void setIndex(int index) {
         this.index = index;
     }
