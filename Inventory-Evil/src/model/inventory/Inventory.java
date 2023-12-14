@@ -41,6 +41,11 @@ public class Inventory {
         inventory.set(idx1, i);
     }
 
+    // Get element
+    public Item get(int idx) {
+        return inventory.get(idx);
+    }
+
     public int getSize() {
         return inventory.size();
     }

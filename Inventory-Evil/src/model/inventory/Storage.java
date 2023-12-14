@@ -19,17 +19,21 @@ public class Storage {
     }
 
     // remove from storage
-    public void remove(int idx) throws IllegalArgumentException {
-        if(idx >= storage.size() || idx < 0) {
-            throw new IllegalArgumentException("Invalid index!");
-        }
-
+    public void remove(int idx) {
         ListIterator<Item> itr = storage.listIterator();
-
         while(itr.hasNext()) {
             if(itr.next().getIndex() == idx) {
                 itr.remove();
             }
         }
+    }
+
+    // get from storage
+    public Item get(int idx) {
+        return storage.get(idx);
+    }
+
+    public int getSize() {
+        return storage.size();
     }
 }

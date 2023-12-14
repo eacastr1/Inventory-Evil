@@ -8,11 +8,13 @@ import model.items.aspects.Usable;
 
 public class ItemModel {
 
-    private final Player player = Player.getInstance();
-    private final CraftingModel craftModel = new CraftingModel();
+    private final Player player;
+    private final CraftingModel craftModel;
     private final InventoryModel inventoryModel;
 
     public ItemModel(InventoryModel model) {
+        player = Player.getInstance();
+        craftModel = new CraftingModel();
         inventoryModel = model;
     }
 
@@ -52,6 +54,13 @@ public class ItemModel {
         int result = item2.stack(item1);
 
         // do inventorymodel manipulations
+        if(result == 0 || result == -1) {
+            // add item 1 to item 2
+            // remove item 1
+        } else {
+            // add item 1 to item 2
+            // remove what is left of item 1 to item 2
+        }
     }
 
     public void craft(Item item1, Item item2) throws IllegalArgumentException {
